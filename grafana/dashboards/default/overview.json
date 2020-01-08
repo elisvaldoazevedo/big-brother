@@ -14,8 +14,7 @@
   },
   "editable": true,
   "gnetId": null,
-  "graphTooltip": 0,
-  "iteration": 1576087168952,
+  "graphTooltip": 2,
   "links": [],
   "panels": [
     {
@@ -23,13 +22,16 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "ds-prometheus",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 12,
         "x": 0,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 2,
       "legend": {
         "avg": false,
@@ -44,7 +46,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -104,6 +108,7 @@
       }
     },
     {
+      "datasource": "ds-prometheus",
       "gridPos": {
         "h": 9,
         "w": 12,
@@ -119,28 +124,27 @@
             "last"
           ],
           "defaults": {
+            "mappings": [],
             "max": 1,
             "min": 0,
+            "thresholds": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ],
             "title": ""
           },
-          "mappings": [],
           "override": {},
-          "thresholds": [
-            {
-              "color": "red",
-              "index": 0,
-              "value": null
-            },
-            {
-              "color": "green",
-              "index": 1,
-              "value": 1
-            }
-          ],
           "values": false
         },
         "orientation": "horizontal"
       },
+      "pluginVersion": "6.5.2",
       "targets": [
         {
           "aggregation": "Last",
@@ -168,15 +172,15 @@
       "type": "bargauge"
     }
   ],
-  "refresh": "30s",
-  "schemaVersion": 18,
-  "style": "dark",
+  "refresh": "2m",
+  "schemaVersion": 21,
+  "style": "light",
   "tags": [],
   "templating": {
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {
@@ -204,7 +208,7 @@
       "30d"
     ]
   },
-  "timezone": "",
+  "timezone": "browser",
   "title": "Health Overview",
   "uid": "1pCmwjOWk",
   "version": 1

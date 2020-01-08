@@ -23,7 +23,7 @@ cat > $FILE <<- EOM
 apiVersion: 1
 
 datasources:
-- name: prometheus
+- name: ds-prometheus
   type: prometheus
   access: $PROMETHEUS_ACCESS_TYPE
   url: $PROMETHEUS_URL

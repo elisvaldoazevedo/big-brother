@@ -25,7 +25,7 @@
           "value": "avg"
         }
       ],
-      "datasource": null,
+      "datasource": "ds-prometheus",
       "fontSize": "100%",
       "gridPos": {
         "h": 10,
@@ -101,7 +101,7 @@
           "value": "avg"
         }
       ],
-      "datasource": null,
+      "datasource": "ds-prometheus",
       "fontSize": "100%",
       "gridPos": {
         "h": 10,
@@ -173,7 +173,7 @@
           "value": "avg"
         }
       ],
-      "datasource": null,
+      "datasource": "ds-prometheus",
       "fontSize": "100%",
       "gridPos": {
         "h": 10,
@@ -265,7 +265,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "ds-prometheus",
       "decimals": 2,
       "description": "Throughput and Latency of $addr",
       "fill": 1,
@@ -387,7 +387,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "ds-prometheus",
       "decimals": 2,
       "description": "Throughput and Error rate of $addr",
       "fill": 1,
@@ -511,7 +511,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "ds-prometheus",
       "decimals": 2,
       "description": "Latency and Error rate of $addr",
       "fill": 1,
@@ -633,7 +633,7 @@
       }
     }
   ],
-  "refresh": "2m",
+  "refresh": "1m",
   "schemaVersion": 21,
   "style": "light",
   "tags": [],
@@ -647,7 +647,7 @@
             "/resource/test-0001"
           ]
         },
-        "datasource": "prometheus",
+        "datasource": "ds-prometheus",
         "definition": "request_seconds_count:irate",
         "hide": 0,
         "includeAll": false,
@@ -672,7 +672,7 @@
           "text": "http",
           "value": "http"
         },
-        "datasource": "prometheus",
+        "datasource": "ds-prometheus",
         "definition": "request_seconds_count:irate",
         "hide": 2,
         "includeAll": false,
