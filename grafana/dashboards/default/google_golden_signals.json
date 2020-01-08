@@ -14,8 +14,8 @@
   },
   "editable": true,
   "gnetId": null,
-  "graphTooltip": 0,
-  "iteration": 1576087263242,
+  "graphTooltip": 2,
+  "iteration": 1578450043598,
   "links": [],
   "panels": [
     {
@@ -25,6 +25,7 @@
           "value": "avg"
         }
       ],
+      "datasource": null,
       "fontSize": "100%",
       "gridPos": {
         "h": 10,
@@ -52,6 +53,10 @@
             "rgba(50, 172, 45, 0.97)"
           ],
           "decimals": 2,
+          "link": true,
+          "linkTargetBlank": true,
+          "linkTooltip": "$__cell",
+          "linkUrl": "d/58FdwEhZk/googles-golden-rules?tab=visualization&orgId=1&var-addr=$__cell&var-type=http&refresh=on5s",
           "pattern": "Metric",
           "thresholds": [],
           "type": "number",
@@ -96,6 +101,7 @@
           "value": "avg"
         }
       ],
+      "datasource": null,
       "fontSize": "100%",
       "gridPos": {
         "h": 10,
@@ -167,6 +173,7 @@
           "value": "avg"
         }
       ],
+      "datasource": null,
       "fontSize": "100%",
       "gridPos": {
         "h": 10,
@@ -233,6 +240,7 @@
     },
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -257,14 +265,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": null,
       "description": "Throughput and Latency of $addr",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 8,
         "x": 0,
         "y": 11
       },
+      "hiddenSeries": false,
       "id": 2,
       "legend": {
         "avg": false,
@@ -279,7 +290,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -381,14 +394,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": null,
       "description": "Throughput and Error rate of $addr",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 8,
         "x": 8,
         "y": 11
       },
+      "hiddenSeries": false,
       "id": 3,
       "legend": {
         "avg": false,
@@ -403,7 +419,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -506,14 +524,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": null,
       "description": "Latency and Error rate of $addr",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 9,
         "w": 8,
         "x": 16,
         "y": 11
       },
+      "hiddenSeries": false,
       "id": 4,
       "legend": {
         "avg": false,
@@ -528,7 +549,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -627,8 +650,9 @@
       }
     }
   ],
-  "schemaVersion": 18,
-  "style": "dark",
+  "refresh": "1m",
+  "schemaVersion": 21,
+  "style": "light",
   "tags": [],
   "templating": {
     "list": [
@@ -685,7 +709,7 @@
     ]
   },
   "time": {
-    "from": "now-15m",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {
@@ -713,7 +737,7 @@
       "30d"
     ]
   },
-  "timezone": "",
+  "timezone": "browser",
   "title": "Google's Golden Rules",
   "uid": "58FdwEhZk",
   "version": 1
