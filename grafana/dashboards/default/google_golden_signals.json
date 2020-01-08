@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 2,
-  "iteration": 1578450043598,
+  "iteration": 1578450043604,
   "links": [],
   "panels": [
     {
@@ -266,6 +266,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": null,
+      "decimals": 2,
       "description": "Throughput and Latency of $addr",
       "fill": 1,
       "fillGradient": 0,
@@ -306,17 +307,17 @@
       },
       "seriesOverrides": [
         {
-          "alias": "Throughput",
+          "alias": "/Throughput/",
           "color": "#73BF69",
           "yaxis": 1
         },
         {
-          "alias": "Latency",
+          "alias": "/Latency/",
           "color": "#5794F2",
           "yaxis": 2
         },
         {
-          "alias": "Error rate",
+          "alias": "/Error rate/",
           "color": "#F2495C",
           "yaxis": 2
         }
@@ -326,10 +327,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(request_seconds_count:irate{addr=\"$addr\", prsn=\"$prsn\", type=\"$type\"}) by (addr, prsn, type)",
+          "expr": "sum(request_seconds_count:irate{addr=\"$addr\", type=\"$type\"}) by (addr, prsn, type)",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "Throughput",
+          "legendFormat": "Throughput ",
           "refId": "A"
         },
         {
@@ -338,14 +339,6 @@
           "intervalFactor": 1,
           "legendFormat": "Latency",
           "refId": "B"
-        },
-        {
-          "expr": "sum(request_seconds_count:irate{addr=\"$addr\", type=\"$type\", status!~\"2..\"}) by (addr, prsn, type)\n/\nsum(request_seconds_count:irate{addr=\"$addr\", type=\"$type\"}) by (addr, prsn, type)",
-          "format": "time_series",
-          "hide": true,
-          "intervalFactor": 1,
-          "legendFormat": "Error rate",
-          "refId": "C"
         }
       ],
       "thresholds": [],
@@ -395,6 +388,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": null,
+      "decimals": 2,
       "description": "Throughput and Error rate of $addr",
       "fill": 1,
       "fillGradient": 0,
@@ -435,7 +429,7 @@
       },
       "seriesOverrides": [
         {
-          "alias": "Throughput",
+          "alias": "/Throughput/",
           "color": "#73BF69",
           "yaxis": 1
         },
@@ -445,7 +439,7 @@
           "yaxis": 2
         },
         {
-          "alias": "Error rate",
+          "alias": "/Error rate/",
           "color": "#F2495C",
           "yaxis": 2
         }
@@ -455,26 +449,19 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(request_seconds_count:irate{addr=\"$addr\", prsn=\"$prsn\", type=\"$type\"}) by (addr, prsn, type)",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "Throughput",
-          "refId": "A"
-        },
-        {
-          "expr": "sum(request_seconds_sum:irate{addr=\"$addr\", prsn=\"$prsn\", type=\"$type\"}) by (addr, prsn, type)\n/\nsum(request_seconds_count:irate{addr=\"$addr\", prsn=\"$prsn\", type=\"$type\"}) by (addr, prsn, type)",
-          "format": "time_series",
-          "hide": true,
-          "intervalFactor": 1,
-          "legendFormat": "Latency",
-          "refId": "B"
-        },
-        {
-          "expr": "sum(request_seconds_count:irate{addr=\"$addr\", prsn=\"$prsn\", type=\"$type\", status!~\"2..\"}) by (addr, prsn, type)\n/\nsum(request_seconds_count:irate{addr=\"$addr\", prsn=\"$prsn\", type=\"$type\"}) by (addr, prsn, type)",
+          "expr": "sum(request_seconds_count:irate{addr=\"$addr\"}) by (addr)",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
-          "legendFormat": "Error rate",
+          "legendFormat": "Throughput {{addr}}",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(request_seconds_count:irate{addr=\"$addr\", status!~\"2..\"}) by (addr, prsn, type)\n/\nsum(request_seconds_count:irate{addr=\"$addr\"}) by (addr, prsn, type)",
+          "format": "time_series",
+          "hide": false,
+          "intervalFactor": 1,
+          "legendFormat": "Error rate {{addr}}",
           "refId": "C"
         }
       ],
@@ -525,6 +512,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": null,
+      "decimals": 2,
       "description": "Latency and Error rate of $addr",
       "fill": 1,
       "fillGradient": 0,
@@ -570,12 +558,12 @@
           "yaxis": 1
         },
         {
-          "alias": "Latency",
+          "alias": "/Latency/",
           "color": "#5794F2",
           "yaxis": 1
         },
         {
-          "alias": "Error rate",
+          "alias": "/Error rate/",
           "color": "#F2495C",
           "yaxis": 2
         }
@@ -585,27 +573,20 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(request_seconds_count:irate{addr=\"$addr\", prsn=\"$prsn\", type=\"$type\"}) by (addr, prsn, type)",
-          "format": "time_series",
-          "hide": true,
-          "intervalFactor": 1,
-          "legendFormat": "Throughput",
-          "refId": "A"
-        },
-        {
-          "expr": "sum(request_seconds_sum:irate{addr=\"$addr\", prsn=\"$prsn\", type=\"$type\"}) by (addr, prsn, type)\n/\nsum(request_seconds_count:irate{addr=\"$addr\", prsn=\"$prsn\", type=\"$type\"}) by (addr, prsn, type)",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "Latency",
-          "refId": "B"
-        },
-        {
-          "expr": "sum(request_seconds_count:irate{addr=\"$addr\", prsn=\"$prsn\", type=\"$type\", status!~\"2..\"}) by (addr, prsn, type)\n/\nsum(request_seconds_count:irate{addr=\"$addr\", prsn=\"$prsn\", type=\"$type\"}) by (addr, prsn, type)",
+          "expr": "sum(request_seconds_sum:irate{addr=\"$addr\"}) by (addr, prsn)\n/\nsum(request_seconds_count:irate{addr=\"$addr\"}) by (addr, prsn)",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
-          "legendFormat": "Error rate",
-          "refId": "C"
+          "legendFormat": "Latency {{addr}} {{prsn}}",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(request_seconds_sum:irate{addr=\"$addr\",status!~\"2..\"}) by (addr, prsn, type)\n/\nsum(request_seconds_count:irate{addr=\"$addr\"}) by (addr, prsn, type)",
+          "format": "time_series",
+          "hide": false,
+          "intervalFactor": 1,
+          "legendFormat": "Error rate  {{addr}}",
+          "refId": "B"
         }
       ],
       "thresholds": [],
@@ -628,6 +609,7 @@
       },
       "yaxes": [
         {
+          "decimals": null,
           "format": "s",
           "label": null,
           "logBase": 1,
@@ -636,6 +618,7 @@
           "show": true
         },
         {
+          "decimals": 2,
           "format": "percentunit",
           "label": null,
           "logBase": 1,
@@ -660,7 +643,9 @@
         "allValue": null,
         "current": {
           "text": "/resource/test-0001",
-          "value": "/resource/test-0001"
+          "value": [
+            "/resource/test-0001"
+          ]
         },
         "datasource": "prometheus",
         "definition": "request_seconds_count:irate",
@@ -709,7 +694,7 @@
     ]
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {
