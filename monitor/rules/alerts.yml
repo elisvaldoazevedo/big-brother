@@ -28,14 +28,16 @@ groups:
         [20m:])
       [1h:])
 
-
-  - alert: request_seconds_count_latency_increase_10_percent
+  - record: request_seconds_count_latency_increase      
     expr:
       (
         ( requests_seconds_latency * 100)
-        /
+          /
         ( request_seconds_latency:avg_max * 100)
-      ) >= 1.1
+      ) 
+
+  - alert: request_seconds_count_latency_increase_10_percent
+    expr: request_seconds_count_latency_increase >= 1.1
     for: 5m
     labels:
       severity: minor
@@ -44,28 +46,8 @@ groups:
       description: O recurso no endereço {{$labels.addr}} do serviço {{$labels.prsn}} está com um aumento da latência em 10%.
       summary: Alerta para as requisições que, com base na média dos máximos histórico de uma hora, tenha um aumento no tempo de resposta em 10% por mais de cinco minutos.
 
-  - alert: request_seconds_count_latency_increase_10_percent
-    expr:
-      (
-        ( requests_seconds_latency * 100)
-        /
-        ( request_seconds_latency:avg_max * 100)
-      ) >= 1.1
-    for: 5m
-    labels:
-      severity: warning
-      type_signal: latency
-    annotations:
-      description: O recurso no endereço {{$labels.addr}} do serviço {{$labels.prsn}} está com um aumento da latência em 10%.
-      summary: Alerta para as requisições que, com base na média dos máximos histórico de uma hora, tenha um aumento no tempo de resposta em 10% por mais de cinco minutos.
-
   - alert: request_seconds_count_latency_increase_20_percent
-    expr:
-      (
-        ( requests_seconds_latency * 100)
-        /
-        ( request_seconds_latency:avg_max * 100)
-      ) >= 1.2
+    expr: request_seconds_count_latency_increase >= 1.2
     for: 5m
     labels:
       severity: minor
@@ -75,12 +57,7 @@ groups:
       summary: Alerta para as requisições que, com base na média dos máximos histórico de uma hora, tenha um aumento no tempo de resposta em 20% por mais de cinco minutos.
 
   - alert: request_seconds_count_latency_increase_50_percent
-    expr:
-      (
-        ( requests_seconds_latency * 100)
-        /
-        ( request_seconds_latency:avg_max * 100)
-      ) >= 1.5
+    expr: request_seconds_count_latency_increase >= 1.5
     for: 5m
     labels:
       severity: normal
@@ -90,12 +67,7 @@ groups:
       summary: Alerta para as requisições que, com base na média dos máximos histórico de uma hora, tenha um aumento no tempo de resposta em 50% por mais de cinco minutos.
 
   - alert: request_seconds_count_latency_increase_90_percent
-    expr:
-      (
-        ( requests_seconds_latency * 100)
-        /
-        ( request_seconds_latency:avg_max * 100)
-      ) >= 1.9
+    expr: request_seconds_count_latency_increase >= 1.9
     for: 5m
     labels:
       severity: major
@@ -105,12 +77,7 @@ groups:
       summary: Alerta para as requisições que, com base na média dos máximos histórico de uma hora, tenha um aumento no tempo de resposta em 90% por mais de cinco minutos.
 
   - alert: request_seconds_count_latency_increase_100_percent
-    expr:
-      (
-        ( requests_seconds_latency * 100)
-        /
-        ( request_seconds_latency:avg_max * 100)
-      ) >= 2.0
+    expr: request_seconds_count_latency_increase >= 2.0
     for: 5m
     labels:
       severity: critical
